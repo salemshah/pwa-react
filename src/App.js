@@ -1,25 +1,16 @@
-import logo from './logo.svg';
+import * as React from 'react';
 import './App.css';
+import {Container, Grid} from '@mui/material';
+import newsData from "./http/data.json"
+import NewsCard from "./components/NewsCard";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default function MultiActionAreaCard() {
+    return (
+        <Container>
+            <Grid container spacing={2}>
+                {newsData.map((news, index) => <Grid item key={index.toString()}><NewsCard news={news}/></Grid>)}
+            </Grid>
+        </Container>
+    );
 }
 
-export default App;
